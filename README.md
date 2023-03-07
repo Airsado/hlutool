@@ -1,6 +1,6 @@
 # hlutool
 
-A new Flutter project.
+这是一个主要为实现自身需求尝试开发的Flutter桌面端，目前只是测试Windows平台，其他平台暂未测试
 
 ## Getting Started
 
