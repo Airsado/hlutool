@@ -5,9 +5,8 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
   connectivity_plus
-  desktop_multi_window
   url_launcher_windows
-  windows_notification
+  windows_single_instance
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
