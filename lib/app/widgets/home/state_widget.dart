@@ -1,6 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-
-import '../../pages/home/homepage.dart';
 import '../../views/navigation_view.dart';
 
 class StateWidget extends StatefulWidget {
