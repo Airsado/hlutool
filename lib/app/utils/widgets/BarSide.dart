@@ -10,10 +10,10 @@ import '../../theme/values/AppSize.dart';
 /// @Description 应用顶部的titleBar和一些最小化、关闭按钮
 
 class BarSide extends StatelessWidget {
-  BarSide({super.key, this.child, this.settingWidget});
+  const BarSide({super.key, this.child, this.settingWidget});
 
-  Widget? child;
-  Widget? settingWidget;
+  final Widget? child;
+  final Widget? settingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +25,24 @@ class BarSide extends StatelessWidget {
             Expanded(
                 child: MoveWindow(
                     child: Padding(
-              padding: const EdgeInsets.only(top: 5, left: 12),
-              child: child,
-            ))),
+                        padding: const EdgeInsets.only(top: 5, left: 12),
+                        child: child))),
             Row(
               children: [
-                SizedBox(
-                    width: AppSize.windowsBarButtonSize,
-                    height: AppSize.windowsBarButtonSize,
-                    child: settingWidget),
                 MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: SizedBox(
                       width: AppSize.windowsBarButtonSize,
                       height: AppSize.windowsBarButtonSize,
-                      child: MinimizeWindowButton(
-                          colors: AppColors.windowsBarButtonColor)),
+                      child: settingWidget),
                 ),
+                MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: SizedBox(
+                        width: AppSize.windowsBarButtonSize,
+                        height: AppSize.windowsBarButtonSize,
+                        child: MinimizeWindowButton(
+                            colors: AppColors.windowsBarButtonColor))),
                 MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: SizedBox(

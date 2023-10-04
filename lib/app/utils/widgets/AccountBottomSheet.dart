@@ -4,6 +4,7 @@ import 'package:hlutool/app/modules/home_module/home_controller/HomeController.d
 import 'package:hlutool/app/theme/values/AppImages.dart';
 import 'package:hlutool/app/theme/values/AppSize.dart';
 import 'package:hlutool/app/utils/methods/LocalStore.dart';
+import 'package:provider/provider.dart';
 import 'InputField.dart';
 
 /// @Author Airsado
@@ -19,14 +20,8 @@ class AccountBottomSheet extends StatefulWidget {
 
 class _AccountBottomSheetState extends State<AccountBottomSheet> {
   @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    HomeController().dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Provider.of<HomeController>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -45,12 +40,12 @@ class _AccountBottomSheetState extends State<AccountBottomSheet> {
                   children: [
                     InputField(
                       prefixIcon: const Icon(Icons.account_circle_outlined),
-                      controller: HomeController().accountController,
+                      controller: homeController.accountController,
                       hintText: '请输入校园网账号',
                     ),
                     InputField(
                         prefixIcon: const Icon(Icons.key_outlined),
-                        controller: HomeController().passwordController,
+                        controller: homeController.passwordController,
                         hintText: '请输入校园网密码',
                         obscureText: true),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
@@ -59,7 +54,7 @@ class _AccountBottomSheetState extends State<AccountBottomSheet> {
                   ])),
           ElevatedButton(
             onPressed: () {
-              HomeController().submitAndSave();
+              homeController.submitAndSave(context);
             },
             child: Container(
                 alignment: Alignment.center,

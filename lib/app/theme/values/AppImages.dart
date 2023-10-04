@@ -5,4 +5,6 @@
 
 class AppImage {
   static const String logo = "assets/images/logo.png";
+  static const String backGroundImg = "assets/images/backgroundImg.jpg";
+  static const String wechatCode = "assets/images/addWx.jpg";
 }
