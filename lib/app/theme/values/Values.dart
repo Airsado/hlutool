@@ -8,7 +8,8 @@ class AppConstant {
   static const String baseUrl = "http://47.115.190.41/lfradius";
 
   //校园网认证的url地址
-  static const String authUrl = 'http://192.168.100.252:8010/cgi-bin/webauth/ajax_webauth';
+  static const String authUrl =
+      'http://192.168.100.252:8010/cgi-bin/webauth/ajax_webauth';
 
   //Dio请求的基础Headers
   static const Map<String, String> baseHeaders = {
@@ -28,5 +29,7 @@ class AppConstant {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.53",
   };
 
-
+  static final Uri blogUrl = Uri.parse('https://www.airsado.cn/');
+  static final Uri officialUrl = Uri.parse('https://hlu.airsado.cn/');
+  static final Uri githubUrl = Uri.parse('https://github.com/Airsado/hlutool');
 }

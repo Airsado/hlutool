@@ -7,7 +7,7 @@ import 'package:hlutool/app/modules/home_module/home_page/HomeView.dart';
 /// @Version 1.0
 /// @Description 底部导航相关控制、请求
 
-class NavigationController {
+class NavigationController with ChangeNotifier {
   static final NavigationController _instance = NavigationController._();
 
   factory NavigationController() {
@@ -15,6 +15,13 @@ class NavigationController {
   }
 
   NavigationController._();
+
+  bool isBootStrap = true;
+
+  void bootStrapSwitch(bool v) {
+    isBootStrap = v;
+    notifyListeners();
+  }
 
   /// 底部导航栏
   static final List<Widget> navigationList = [
@@ -24,5 +31,4 @@ class NavigationController {
 
   /// 底部导航当前索引
   static int currentIndex = 0;
-
 }

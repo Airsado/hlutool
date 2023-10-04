@@ -22,7 +22,7 @@ class CampusNetwork {
   CampusNetwork._internal();
 
   ///  校园网认证请求
-  void authentication(String user, String password) async {
+  Future<void> authentication(String user, String password) async {
     InternetAddress ip = await intranetIpv4();
     Log.d("正在认证校园网：认证用户（$user）,认证IP（${ip.address}）");
     await HttpUtil()
