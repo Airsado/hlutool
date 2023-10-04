@@ -43,7 +43,7 @@ class HomeController with ChangeNotifier {
         LocalStore().setData('user', accountController.text);
         LocalStore().setData('password', passwordController.text);
         _updateAccountInfo();
-        _authNetwork();
+        authNetwork();
         Navigator.pop(context);
       } else {
         isLoading = false;
@@ -67,7 +67,8 @@ class HomeController with ChangeNotifier {
   }
 
   //认证校园网逻辑
-  void _authNetwork() {
+  void authNetwork() {
+    _updateAccountInfo();
     CampusNetwork()
         .authentication(
             LocalStore().getData('user'), LocalStore().getData('password'))
@@ -75,6 +76,7 @@ class HomeController with ChangeNotifier {
       Future.delayed(const Duration(milliseconds: 500), () {
         isLoading = false;
         loginStatus = "已认证";
+
         notifyListeners();
       });
     });
@@ -103,7 +105,7 @@ class HomeController with ChangeNotifier {
     } else {
       isLoading = true;
       _setWlanProfile();
-      _authNetwork();
+      authNetwork();
     }
     notifyListeners();
   }

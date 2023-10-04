@@ -27,6 +27,8 @@ void main(List<String> args) async {
     Register().writeBootStrapRegister();
   }
 
+
+
   //全局异常捕获
   runZonedGuarded(() async {
     // 单实例启动

@@ -23,6 +23,21 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  //若本地存在账号密码，则自动连接调用
+  void autoConnect() async {
+    if (await LocalStore().getData('user') != null &&
+        await LocalStore().getData('password') != null) {
+      HomeController().authNetwork();
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    autoConnect();
+  }
+
   @override
   Widget build(BuildContext context) {
     final HomeController homeController = Provider.of<HomeController>(context);
